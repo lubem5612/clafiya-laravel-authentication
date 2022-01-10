@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Validator;
 
 /**
- * @group Authentication
+ * @group Clafiya API For Authentication
  *
  * API for handling User Authentication
  */
@@ -87,7 +87,7 @@ class AuthenticationController extends Controller
             }
             return $this->sendError('unable to create user');
         }catch (\Exception $exception) {
-            return $this->sendError('exception error', $exception->getMessage(), '502');
+            return $this->sendError('exception error', ['error' => $exception->getMessage()], '502');
         }
     }
 
@@ -140,14 +140,14 @@ class AuthenticationController extends Controller
                 return $this->sendError('email or phone number does not exist', [], 404);
             }
         }catch (\Exception $exception) {
-            return $this->sendError('exception error', $exception->getMessage(), 502);
+            return $this->sendError('exception error', ['error' => $exception->getMessage()], 502);
         }
     }
 
     /**
      * Authenticated User
      *
-     * get the authenticated user details on from the platform
+     * get the authenticated user details on the platform
      *
      * @response {
      * "success": true,
@@ -173,7 +173,7 @@ class AuthenticationController extends Controller
             }
             return $this->sendError('user not logged in');
         }catch (\Exception $exception) {
-            return $this->sendError('exception error', $exception->getTrace(), 502);
+            return $this->sendError('exception error', ['error' => $exception->getMessage()], 502);
         }
     }
 
@@ -200,11 +200,11 @@ class AuthenticationController extends Controller
                 return $this->sendResponse(null, 'user logged out successfully');
             }
             else{
-                return $this->sendError('user not authenticated', ['error' => 'Unauthorised'] , Response::HTTP_UNAUTHORIZED);
+                return $this->sendError('user not authenticated', ['error' => 'Unauthorised'] , 404);
             }
 
         }catch (\Exception $exception) {
-            return $this->sendError('exception error', $exception->getMessage(), 502);
+            return $this->sendError('exception error', ['error' => $exception->getMessage()], 502);
         }
     }
 }

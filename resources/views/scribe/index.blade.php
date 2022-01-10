@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>Laravel Documentation</title>
+    <title>Clafiya Documentation</title>
 
     <link href="https://fonts.googleapis.com/css?family=PT+Sans&display=swap" rel="stylesheet">
 
@@ -44,7 +44,7 @@
                             <li><a href='http://github.com/knuckleswtf/scribe'>Documentation powered by Scribe ✍</a></li>
                     </ul>
             <ul class="toc-footer" id="last-updated">
-            <li>Last updated: January 7 2022</li>
+            <li>Last updated: January 9 2022</li>
         </ul>
 </div>
 <div class="page-wrapper">
@@ -56,14 +56,14 @@
 You can switch the language used with the tabs at the top right (or from the nav menu at the top left on mobile).</aside>
 <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.10/lodash.min.js"></script>
 <script>
-    var baseUrl = "http://localhost";
+    var baseUrl = "http://clafiya.slait.com.ng";
 </script>
 <script src="{{ asset("vendor/scribe/js/tryitout-2.7.10.js") }}"></script>
 <blockquote>
 <p>Base URL</p>
 </blockquote>
-<pre><code class="language-yaml">http://localhost</code></pre><h1>Authenticating requests</h1>
-<p>This API is not authenticated.</p><h1>Authentication</h1>
+<pre><code class="language-yaml">http://clafiya.slait.com.ng</code></pre><h1>Authenticating requests</h1>
+<p>This API requires a bearer token authentication.</p><h1>Clafiya Authentication</h1>
 <p>API for handling User Authentication</p>
 <h2>Login user</h2>
 <p>login attempt into the platform</p>
@@ -71,13 +71,13 @@ You can switch the language used with the tabs at the top right (or from the nav
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X POST \
-    "http://localhost/api/login" \
+    "http://clafiya.slait.com.ng/api/login" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"username":"et","password":"et"}'
+    -d '{"username":"odio","password":"dolorum"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/login"
+    "http://clafiya.slait.com.ng/api/login"
 );
 
 let headers = {
@@ -86,8 +86,8 @@ let headers = {
 };
 
 let body = {
-    "username": "et",
-    "password": "et"
+    "username": "odio",
+    "password": "dolorum"
 }
 
 fetch(url, {
@@ -150,13 +150,13 @@ The password of the user.
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X POST \
-    "http://localhost/api/register" \
+    "http://clafiya.slait.com.ng/api/register" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"name":"eaque","email":"libero","phone":"molestiae","password":"quis"}'
+    -d '{"name":"quia","email":"tenetur","phone":"sit","password":"labore"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/register"
+    "http://clafiya.slait.com.ng/api/register"
 );
 
 let headers = {
@@ -165,10 +165,10 @@ let headers = {
 };
 
 let body = {
-    "name": "eaque",
-    "email": "libero",
-    "phone": "molestiae",
-    "password": "quis"
+    "name": "quia",
+    "email": "tenetur",
+    "phone": "sit",
+    "password": "labore"
 }
 
 fetch(url, {
@@ -238,16 +238,16 @@ The password of the user. must be min of 6 characters
 
 </form>
 <h2>Authenticated User</h2>
-<p>get the authenticated user details on from the platform</p>
+<p>get the authenticated user details on the platform</p>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "http://localhost/api/user" \
+    -G "http://clafiya.slait.com.ng/api/user" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/user"
+    "http://clafiya.slait.com.ng/api/user"
 );
 
 let headers = {
@@ -296,17 +296,17 @@ fetch(url, {
  <b><code>api/user</code></b>
 </p>
 </form>
-<h2>LogOut User</h2>
+<h2>Log Out User</h2>
 <p>log out a user from the platform</p>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X POST \
-    "http://localhost/api/logout" \
+    "http://clafiya.slait.com.ng/api/logout" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/logout"
+    "http://clafiya.slait.com.ng/api/logout"
 );
 
 let headers = {

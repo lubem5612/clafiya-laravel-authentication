@@ -11,16 +11,16 @@ login attempt into the platform
 
 ```bash
 curl -X POST \
-    "http://localhost/api/login" \
+    "http://clafiya.slait.com.ng/api/login" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"username":"et","password":"et"}'
+    -d '{"username":"odio","password":"dolorum"}'
 
 ```
 
 ```javascript
 const url = new URL(
-    "http://localhost/api/login"
+    "http://clafiya.slait.com.ng/api/login"
 );
 
 let headers = {
@@ -29,8 +29,8 @@ let headers = {
 };
 
 let body = {
-    "username": "et",
-    "password": "et"
+    "username": "odio",
+    "password": "dolorum"
 }
 
 fetch(url, {
@@ -102,16 +102,16 @@ log in user after registration and return token with other user details
 
 ```bash
 curl -X POST \
-    "http://localhost/api/register" \
+    "http://clafiya.slait.com.ng/api/register" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"name":"eaque","email":"libero","phone":"molestiae","password":"quis"}'
+    -d '{"name":"quia","email":"tenetur","phone":"sit","password":"labore"}'
 
 ```
 
 ```javascript
 const url = new URL(
-    "http://localhost/api/register"
+    "http://clafiya.slait.com.ng/api/register"
 );
 
 let headers = {
@@ -120,10 +120,10 @@ let headers = {
 };
 
 let body = {
-    "name": "eaque",
-    "email": "libero",
-    "phone": "molestiae",
-    "password": "quis"
+    "name": "quia",
+    "email": "tenetur",
+    "phone": "sit",
+    "password": "labore"
 }
 
 fetch(url, {
@@ -207,14 +207,14 @@ get the authenticated user details on from the platform
 
 ```bash
 curl -X GET \
-    -G "http://localhost/api/user" \
+    -G "http://clafiya.slait.com.ng/api/user" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "http://localhost/api/user"
+    "http://clafiya.slait.com.ng/api/user"
 );
 
 let headers = {
@@ -279,14 +279,14 @@ log out a user from the platform
 
 ```bash
 curl -X POST \
-    "http://localhost/api/logout" \
+    "http://clafiya.slait.com.ng/api/logout" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "http://localhost/api/logout"
+    "http://clafiya.slait.com.ng/api/logout"
 );
 
 let headers = {

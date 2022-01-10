@@ -63,7 +63,7 @@ You can switch the language used with the tabs at the top right (or from the nav
 <p>Base URL</p>
 </blockquote>
 <pre><code class="language-yaml">http://clafiya.slait.com.ng</code></pre><h1>Authenticating requests</h1>
-<p>This API requires a bearer token authentication.</p><h1>Clafiya Authentication</h1>
+<p>This API requires a bearer token authentication for secured routes.</p><h1>Clafiya Authentication</h1>
 <p>API for handling User Authentication</p>
 <h2>Login user</h2>
 <p>login attempt into the platform</p>

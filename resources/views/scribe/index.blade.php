@@ -44,7 +44,7 @@
                             <li><a href='http://github.com/knuckleswtf/scribe'>Documentation powered by Scribe ✍</a></li>
                     </ul>
             <ul class="toc-footer" id="last-updated">
-            <li>Last updated: January 9 2022</li>
+            <li>Last updated: January 10 2022</li>
         </ul>
 </div>
 <div class="page-wrapper">
@@ -63,7 +63,9 @@ You can switch the language used with the tabs at the top right (or from the nav
 <p>Base URL</p>
 </blockquote>
 <pre><code class="language-yaml">http://clafiya.slait.com.ng</code></pre><h1>Authenticating requests</h1>
-<p>This API requires a bearer token authentication for secured routes.</p><h1>Clafiya Authentication</h1>
+<p>Authenticate requests to this API's endpoints by sending an <strong><code>Authorization</code></strong> header with the value <strong><code>"Bearer {YOUR_AUTH_KEY}"</code></strong>.</p>
+<p>All authenticated endpoints are marked with a <code>requires authentication</code> badge in the documentation below.</p>
+<p>You can retrieve your token by login into the platform.</p><h1>Clafiya API For Authentication</h1>
 <p>API for handling User Authentication</p>
 <h2>Login user</h2>
 <p>login attempt into the platform</p>
@@ -74,7 +76,7 @@ You can switch the language used with the tabs at the top right (or from the nav
     "http://clafiya.slait.com.ng/api/login" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"username":"odio","password":"dolorum"}'
+    -d '{"username":"ut","password":"natus"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://clafiya.slait.com.ng/api/login"
@@ -86,8 +88,8 @@ let headers = {
 };
 
 let body = {
-    "username": "odio",
-    "password": "dolorum"
+    "username": "ut",
+    "password": "natus"
 }
 
 fetch(url, {
@@ -153,7 +155,7 @@ The password of the user.
     "http://clafiya.slait.com.ng/api/register" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"name":"quia","email":"tenetur","phone":"sit","password":"labore"}'
+    -d '{"name":"incidunt","email":"aut","phone":"eius","password":"optio"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://clafiya.slait.com.ng/api/register"
@@ -165,10 +167,10 @@ let headers = {
 };
 
 let body = {
-    "name": "quia",
-    "email": "tenetur",
-    "phone": "sit",
-    "password": "labore"
+    "name": "incidunt",
+    "email": "aut",
+    "phone": "eius",
+    "password": "optio"
 }
 
 fetch(url, {
@@ -238,12 +240,14 @@ The password of the user. must be min of 6 characters
 
 </form>
 <h2>Authenticated User</h2>
+<p><small class="badge badge-darkred">requires authentication</small></p>
 <p>get the authenticated user details on the platform</p>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
     -G "http://clafiya.slait.com.ng/api/user" \
+    -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
@@ -251,6 +255,7 @@ The password of the user. must be min of 6 characters
 );
 
 let headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -284,7 +289,7 @@ fetch(url, {
     <blockquote>Request failed with error:</blockquote>
     <pre><code id="execution-error-message-GETapi-user"></code></pre>
 </div>
-<form id="form-GETapi-user" data-method="GET" data-path="api/user" data-authed="0" data-hasfiles="0" data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('GETapi-user', this);">
+<form id="form-GETapi-user" data-method="GET" data-path="api/user" data-authed="1" data-hasfiles="0" data-headers='{"Authorization":"Bearer {YOUR_AUTH_KEY}","Content-Type":"application\/json","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('GETapi-user', this);">
 <h3>
     Request&nbsp;&nbsp;&nbsp;
         <button type="button" style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-tryout-GETapi-user" onclick="tryItOut('GETapi-user');">Try it out ⚡</button>
@@ -294,6 +299,9 @@ fetch(url, {
 <p>
 <small class="badge badge-green">GET</small>
  <b><code>api/user</code></b>
+</p>
+<p>
+<label id="auth-GETapi-user" hidden>Authorization header: <b><code>Bearer </code></b><input type="text" name="Authorization" data-prefix="Bearer " data-endpoint="GETapi-user" data-component="header"></label>
 </p>
 </form>
 <h2>Log Out User</h2>

@@ -1,4 +1,4 @@
-# Authentication
+# Clafiya API For Authentication
 
 API for handling User Authentication
 
@@ -14,7 +14,7 @@ curl -X POST \
     "http://clafiya.slait.com.ng/api/login" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"username":"odio","password":"dolorum"}'
+    -d '{"username":"ut","password":"natus"}'
 
 ```
 
@@ -29,8 +29,8 @@ let headers = {
 };
 
 let body = {
-    "username": "odio",
-    "password": "dolorum"
+    "username": "ut",
+    "password": "natus"
 }
 
 fetch(url, {
@@ -105,7 +105,7 @@ curl -X POST \
     "http://clafiya.slait.com.ng/api/register" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"name":"quia","email":"tenetur","phone":"sit","password":"labore"}'
+    -d '{"name":"incidunt","email":"aut","phone":"eius","password":"optio"}'
 
 ```
 
@@ -120,10 +120,10 @@ let headers = {
 };
 
 let body = {
-    "name": "quia",
-    "email": "tenetur",
-    "phone": "sit",
-    "password": "labore"
+    "name": "incidunt",
+    "email": "aut",
+    "phone": "eius",
+    "password": "optio"
 }
 
 fetch(url, {
@@ -200,14 +200,16 @@ The password of the user. must be min of 6 characters
 
 ## Authenticated User
 
+<small class="badge badge-darkred">requires authentication</small>
 
-get the authenticated user details on from the platform
+get the authenticated user details on the platform
 
 > Example request:
 
 ```bash
 curl -X GET \
     -G "http://clafiya.slait.com.ng/api/user" \
+    -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -218,6 +220,7 @@ const url = new URL(
 );
 
 let headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -256,7 +259,7 @@ fetch(url, {
     <blockquote>Request failed with error:</blockquote>
     <pre><code id="execution-error-message-GETapi-user"></code></pre>
 </div>
-<form id="form-GETapi-user" data-method="GET" data-path="api/user" data-authed="0" data-hasfiles="0" data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('GETapi-user', this);">
+<form id="form-GETapi-user" data-method="GET" data-path="api/user" data-authed="1" data-hasfiles="0" data-headers='{"Authorization":"Bearer {YOUR_AUTH_KEY}","Content-Type":"application\/json","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('GETapi-user', this);">
 <h3>
     Request&nbsp;&nbsp;&nbsp;
         <button type="button" style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-tryout-GETapi-user" onclick="tryItOut('GETapi-user');">Try it out ⚡</button>
@@ -267,10 +270,13 @@ fetch(url, {
 <small class="badge badge-green">GET</small>
  <b><code>api/user</code></b>
 </p>
+<p>
+<label id="auth-GETapi-user" hidden>Authorization header: <b><code>Bearer </code></b><input type="text" name="Authorization" data-prefix="Bearer " data-endpoint="GETapi-user" data-component="header"></label>
+</p>
 </form>
 
 
-## LogOut User
+## Log Out User
 
 
 log out a user from the platform

@@ -148,7 +148,7 @@ class AuthenticationController extends Controller
      * Authenticated User
      *
      * get the authenticated user details on the platform
-     *
+     * @authenticated
      * @response {
      * "success": true,
      * "data": {
@@ -178,7 +178,7 @@ class AuthenticationController extends Controller
     }
 
     /**
-     * LogOut User
+     * Log Out User
      *
      * log out a user from the platform
      *

@@ -14,7 +14,7 @@ curl -X POST \
     "http://clafiya.slait.com.ng/api/login" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"username":"ut","password":"natus"}'
+    -d '{"username":"earum","password":"rerum"}'
 
 ```
 
@@ -29,8 +29,8 @@ let headers = {
 };
 
 let body = {
-    "username": "ut",
-    "password": "natus"
+    "username": "earum",
+    "password": "rerum"
 }
 
 fetch(url, {
@@ -105,7 +105,7 @@ curl -X POST \
     "http://clafiya.slait.com.ng/api/register" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"name":"incidunt","email":"aut","phone":"eius","password":"optio"}'
+    -d '{"name":"modi","email":"quas","phone":"cupiditate","password":"at"}'
 
 ```
 
@@ -120,10 +120,10 @@ let headers = {
 };
 
 let body = {
-    "name": "incidunt",
-    "email": "aut",
-    "phone": "eius",
-    "password": "optio"
+    "name": "modi",
+    "email": "quas",
+    "phone": "cupiditate",
+    "password": "at"
 }
 
 fetch(url, {
@@ -278,6 +278,7 @@ fetch(url, {
 
 ## Log Out User
 
+<small class="badge badge-darkred">requires authentication</small>
 
 log out a user from the platform
 
@@ -286,6 +287,7 @@ log out a user from the platform
 ```bash
 curl -X POST \
     "http://clafiya.slait.com.ng/api/logout" \
+    -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -296,6 +298,7 @@ const url = new URL(
 );
 
 let headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -326,7 +329,7 @@ fetch(url, {
     <blockquote>Request failed with error:</blockquote>
     <pre><code id="execution-error-message-POSTapi-logout"></code></pre>
 </div>
-<form id="form-POSTapi-logout" data-method="POST" data-path="api/logout" data-authed="0" data-hasfiles="0" data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('POSTapi-logout', this);">
+<form id="form-POSTapi-logout" data-method="POST" data-path="api/logout" data-authed="1" data-hasfiles="0" data-headers='{"Authorization":"Bearer {YOUR_AUTH_KEY}","Content-Type":"application\/json","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('POSTapi-logout', this);">
 <h3>
     Request&nbsp;&nbsp;&nbsp;
         <button type="button" style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-tryout-POSTapi-logout" onclick="tryItOut('POSTapi-logout');">Try it out ⚡</button>
@@ -336,6 +339,9 @@ fetch(url, {
 <p>
 <small class="badge badge-black">POST</small>
  <b><code>api/logout</code></b>
+</p>
+<p>
+<label id="auth-POSTapi-logout" hidden>Authorization header: <b><code>Bearer </code></b><input type="text" name="Authorization" data-prefix="Bearer " data-endpoint="POSTapi-logout" data-component="header"></label>
 </p>
 </form>
 

@@ -181,7 +181,7 @@ class AuthenticationController extends Controller
      * Log Out User
      *
      * log out a user from the platform
-     *
+     * @authenticated
      * @response {
      * "success": true,
      * "data": null,
